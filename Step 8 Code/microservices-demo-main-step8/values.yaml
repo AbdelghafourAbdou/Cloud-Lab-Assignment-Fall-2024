@@ -1,0 +1,8 @@
+redisAddress: redis://redis-cart:6379
+
+serviceMonitor:
+  additionalLabels:
+    release: my-prometheus
+  # targets:
+  #   - url: "http://redis-cart-exporter:9121" 
+  #     name: "redis-cart-exporter"  # Name for the target

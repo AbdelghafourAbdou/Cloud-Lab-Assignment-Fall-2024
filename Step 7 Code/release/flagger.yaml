@@ -1,0 +1,49 @@
+apiVersion: flagger.app/v1beta1
+kind: Canary
+metadata:
+  name: frontend
+  namespace: default
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: frontend
+  service:
+    port: 8080
+  analysis:
+    interval: 10s
+    threshold: 5
+    stepWeight: 10
+    maxWeight: 50
+    metrics:
+      - name: request-success-rate
+        threshold: 99
+        interval: 10s
+      - name: latency
+        threshold: 500
+        interval: 10s
+---
+apiVersion: flagger.app/v1beta1
+kind: Canary
+metadata:
+  name: frontend-external
+  namespace: default
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: frontend-external
+  service:
+    port: 8080
+  analysis:
+    interval: 10s
+    threshold: 5
+    stepWeight: 10
+    maxWeight: 50
+    metrics:
+      - name: request-success-rate
+        threshold: 99
+        interval: 10s
+      - name: latency
+        threshold: 500
+        interval: 10s
