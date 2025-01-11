@@ -926,7 +926,7 @@ spec:
     kind: Deployment
     name: frontend
   service:
-    port: 8080
+    port: 80
   analysis:
     interval: 10s
     threshold: 5
@@ -951,7 +951,7 @@ spec:
     kind: Deployment
     name: frontend-external
   service:
-    port: 8080
+    port: 80
   analysis:
     interval: 10s
     threshold: 5
