@@ -38,11 +38,11 @@ spec:
     - destination:
         host: frontend
         subset: standard
-      weight: 100
+      weight: 75
     - destination:
         host: frontend
         subset: canary
-      weight: 0
+      weight: 25
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -56,8 +56,8 @@ spec:
     - destination:
         host: frontend-external
         subset: standard
-      weight: 100
+      weight: 75
     - destination:
         host: frontend-external
         subset: canary
-      weight: 0
+      weight: 25
